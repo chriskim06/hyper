@@ -9,10 +9,10 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 15,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Hack, Menlo',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -27,7 +27,7 @@ module.exports = {
     letterSpacing: 0,
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(248,28,229,0.8)',
+    cursorColor: 'rgba(180,177,177,0.8)',
 
     // terminal text color under BLOCK cursor
     cursorAccentColor: '#000',
@@ -39,11 +39,11 @@ module.exports = {
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: '#fff',
+    foregroundColor: '#eeeeee',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#000',
+    backgroundColor: '#282828',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
@@ -52,13 +52,10 @@ module.exports = {
     borderColor: '#333',
 
     // custom CSS to embed in the main window
-    css: '',
+    css: '.term_fit.term_active {padding: 0px !important;}',
 
     // custom CSS to embed in the terminal window
     termCSS: '',
-
-    // set custom startup directory (must be an absolute path)
-    workingDirectory: '',
 
     // if you're using a Linux setup which show native menus, set to false
     // default: `true` on Linux, `true` on Windows, ignored on macOS
@@ -67,33 +64,31 @@ module.exports = {
     // set to `false` (without backticks and without quotes) if you want to hide the minimize, maximize and close buttons
     // additionally, set to `'left'` if you want them on the left, like in Ubuntu
     // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
-    showWindowControls: '',
+    showWindowControls: false,
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '0px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: '#000000',
-      red: '#C51E14',
-      green: '#1DC121',
-      yellow: '#C7C329',
-      blue: '#0A2FC4',
-      magenta: '#C839C5',
-      cyan: '#20C5C6',
-      white: '#C7C7C7',
-      lightBlack: '#686868',
-      lightRed: '#FD6F6B',
-      lightGreen: '#67F86F',
-      lightYellow: '#FFFA72',
-      lightBlue: '#6A76FB',
-      lightMagenta: '#FD7CFC',
-      lightCyan: '#68FDFE',
-      lightWhite: '#FFFFFF',
-      limeGreen: '#32CD32',
-      lightCoral: '#F08080',
+      black: '#080200',
+      red: '#fa5e5b',
+      green: '#16c98d',
+      yellow: '#ffc83f',
+      blue: '#288ad6',
+      magenta: '#d34590',
+      cyan: '#28ddde',
+      white: '#e7e7e7',
+      lightBlack: '#6f6b67',
+      lightRed: '#fa5e5b',
+      lightGreen: '#16c98d',
+      lightYellow: '#feef6d',
+      lightBlue: '#278ad6',
+      lightMagenta: '#d34590',
+      lightCyan: '#27dede',
+      lightWhite: '#ffffff'
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -103,18 +98,12 @@ module.exports = {
     // - Make sure to use a full path if the binary name doesn't work
     // - Remove `--login` in shellArgs
     //
-    // Windows Subsystem for Linux (WSL) - previously Bash on Windows
-    // - Example: `C:\\Windows\\System32\\wsl.exe`
-    //
-    // Git-bash on Windows
-    // - Example: `C:\\Program Files\\Git\\bin\\bash.exe`
+    // Bash on Windows
+    // - Example: `C:\\Windows\\System32\\bash.exe`
     //
     // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    //
-    // Cygwin
-    // - Example: `C:\\cygwin64\\bin\\bash.exe`
-    shell: '',
+    shell: '/usr/local/bin/bash',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -123,13 +112,8 @@ module.exports = {
     // for environment variables
     env: {},
 
-    // Supported Options:
-    //  1. 'SOUND' -> Enables the bell as a sound
-    //  2. false: turns off the bell
-    bell: 'SOUND',
-
-    // An absolute file path to a sound file on the machine.
-    // bellSoundURL: '/path/to/sound/file',
+    // set to `false` for no bell
+    bell: false,
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
     copyOnSelect: false,
@@ -146,25 +130,15 @@ module.exports = {
     // (inside tmux or vim with mouse mode enabled for example).
     macOptionSelectionMode: 'vertical',
 
+    // URL to custom bell
+    // bellSoundURL: 'http://example.com/bell.mp3',
+
     // Whether to use the WebGL renderer. Set it to false to use canvas-based
     // rendering (slower, but supports transparent backgrounds)
-    webGLRenderer: true,
+    webGLRenderer: false,
 
-    // keypress required for weblink activation: [ctrl|alt|meta|shift]
-    // todo: does not pick up config changes automatically, need to restart terminal :/
-    webLinksActivationKey: '',
-
-    // if `false` (without backticks and without quotes), Hyper will use ligatures provided by some fonts
-    disableLigatures: true,
-
-    // set to true to disable auto updates
-    disableAutoUpdates: false,
-
-    // set to true to enable screen reading apps (like NVDA) to read the contents of the terminal
-    screenReaderMode: false,
-
-    // set to true to preserve working directory when creating splits or tabs
-    preserveCWD: true,
+    // use the shift key as a modifier to click links
+    webLinksActivationKey: 'shift',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
@@ -185,5 +159,10 @@ module.exports = {
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
+    'editor:deletePreviousWord': 'ctrl+d',
+    'zoom:in': '',
+    'zoom:out': '',
+    'pane:close': '',
+    'window:close': '',
   },
 };
