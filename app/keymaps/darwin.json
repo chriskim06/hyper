@@ -18,14 +18,12 @@
   "tab:next": [
     "command+shift+]",
     "command+shift+right",
-    "command+alt+right",
-    "ctrl+tab"
+    "command+alt+right"
   ],
   "tab:prev": [
     "command+shift+[",
     "command+shift+left",
-    "command+alt+left",
-    "ctrl+shift+tab"
+    "command+alt+left"
   ],
   "tab:jump:prefix": "command",
   "pane:next": "command+]",
@@ -51,5 +49,8 @@
   "editor:deleteEndLine": "command+delete",
   "editor:clearBuffer": "command+k",
   "editor:break": "ctrl+c",
+  "editor:tmuxNext": "ctrl+tab",
+  "editor:tmuxPrev": "ctrl+shift+tab",
+  "editor:tmuxClose": "ctrl+shift+w",
   "plugins:update": "command+shift+u"
 }

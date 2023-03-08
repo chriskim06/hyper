@@ -1,7 +1,7 @@
-import {app, Menu, BrowserWindow} from 'electron';
-import {openConfig, getConfig} from './config';
-import {updatePlugins} from './plugins';
-import {installCLI} from './utils/cli-install';
+import { app, Menu, BrowserWindow } from 'electron';
+import { openConfig, getConfig } from './config';
+import { updatePlugins } from './plugins';
+import { installCLI } from './utils/cli-install';
 import * as systemContextMenu from './utils/system-context-menu';
 
 const commands: Record<string, (focusedWindow?: BrowserWindow) => void> = {
@@ -51,7 +51,7 @@ const commands: Record<string, (focusedWindow?: BrowserWindow) => void> = {
     if (webContents.isDevToolsOpened()) {
       webContents.closeDevTools();
     } else {
-      webContents.openDevTools({mode: 'detach'});
+      webContents.openDevTools({ mode: 'detach' });
     }
   },
   'zoom:reset': (focusedWindow) => {
@@ -111,6 +111,15 @@ const commands: Record<string, (focusedWindow?: BrowserWindow) => void> = {
   'editor:tmux': (focusedWindow) => {
     focusedWindow?.rpc.emit('session tmux req');
   },
+  'editor:tmuxNext': (focusedWindow) => {
+    focusedWindow?.rpc.emit('session tmux next');
+  },
+  'editor:tmuxPrev': (focusedWindow) => {
+    focusedWindow?.rpc.emit('session tmux prev');
+  },
+  'editor:tmuxClose': (focusedWindow) => {
+    focusedWindow?.rpc.emit('session tmux close');
+  },
   'editor:search': (focusedWindow) => {
     focusedWindow?.rpc.emit('session search');
   },
@@ -122,7 +131,7 @@ const commands: Record<string, (focusedWindow?: BrowserWindow) => void> = {
   },
   'window:hamburgerMenu': () => {
     if (process.platform !== 'darwin' && ['', true].includes(getConfig().showHamburgerMenu)) {
-      Menu.getApplicationMenu()!.popup({x: 25, y: 22});
+      Menu.getApplicationMenu()!.popup({ x: 25, y: 22 });
     }
   },
   'systemContextMenu:add': () => {
